@@ -1,0 +1,25 @@
+"""   https://en.wikipedia.org/wiki/Dutch_national_flag_problem 
+   
+   Given an array nums
+   with n objects colored red, white, or blue, sort them in-place so that
+   objects of the same color are adjacent, with the colors in the order red,
+   white, and blue. Here, we will use the integers 0, 1, and 2 to represent the
+   color red, white, and blue respectively. Follow up: Could you solve this
+   problem without using the library's sort function? Could you come up with a
+   one-pass algorithm using only O(1) constant space? 
+   
+   Example 1: 
+   Input: nums = [2,0,2,1,1,0] 
+   Output:       [0,0,1,1,2,2]
+   
+   IDEA:
+   because we need to have only 3 groups of colors in the end,
+   put all found 0s to the beginning of the list
+   and all found 2s to the end
+   
+   all 1s will be in the center automatically
+   
+"""
+
+class Solution75:
+    pass
