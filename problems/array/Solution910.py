@@ -25,6 +25,25 @@
    Example 1: Input: A = [1], K = 0 Output: 0 Explanation: B =
    [1]
 """
+from typing import List
+
 
 class Solution910:
-    pass
+
+    def smallestRangeII(self, arr: List[int], k: int) -> int:
+        n = len(arr)
+        arr.sort()
+        ans = arr[n-1] - arr[0]
+
+        for i in range(1, n-1):
+            # check the hypothesis:
+            # assuming that i is the central elem, check the max and min boundaries of set and calc range
+            left = arr[i]
+            right = arr[i+1]
+            # best of biggest - k vs all combinations for possible breakup of left boundary
+            high = max(arr[n-1] - k, left + k)
+            # best of smallest + k vs all combinations for possible breakdown of right boundary
+            low = min(arr[0] + k, right - k)
+            ans = min(ans, abs(high - low))
+
+        return ans

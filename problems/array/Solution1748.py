@@ -11,6 +11,17 @@
    and the sum is 4.
   
 """
+from typing import List
+
 
 class Solution1748:
-    pass
+    def sumOfUnique(self, nums: List[int]) -> int:
+        seen = set()
+        unique = set()
+        for num in nums:
+            unique.add(num)
+            if num in seen:
+                unique.remove(num)
+            seen.add(num)
+
+        return sum(unique)

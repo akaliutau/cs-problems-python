@@ -13,6 +13,24 @@
    
    
 """
+from typing import List
+
 
 class Solution918:
-    pass
+    def maxSubarraySumCircular(self, A: List[int]) -> int:
+        def kadane(gen: List[int]):
+            ans = cur = - 2 ** 16 - 1
+            for x in gen:
+                cur = x + max(cur, 0)
+                ans = max(ans, cur)
+            return ans
+
+        S = sum(A)
+        ans1 = kadane(iter(A))
+
+        arr2 = [-A[i] for i in range(1, len(A))]
+        ans2 = S + kadane(arr2)
+
+        arr3 = [-A[i] for i in range(len(A) - 1)]
+        ans3 = S + kadane(arr3)
+        return max(ans1, ans2, ans3)

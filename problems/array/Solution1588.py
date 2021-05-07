@@ -28,6 +28,30 @@
    
    
 """
+from typing import List
+
 
 class Solution1588:
-    pass
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        n = len(arr)
+        sum = [0] * (n+1)
+        total = 0
+        length = n-1 if n % 2 == 0 else n
+
+        # prefix sum structure
+        sum[0] = 0
+        for i in range(0, n):
+            sum[i] = sum[i-1] + arr[i]
+
+        # start from the longest odd subsequence, down to the shortest one
+
+        while length > 0:
+            i = 0
+            while i < n and i + length <= n:
+                total += sum[i+length] - sum[i]
+                i += 1
+            length -= 2
+
+        return total
+
+

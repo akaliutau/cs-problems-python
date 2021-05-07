@@ -26,6 +26,26 @@
    to achieve that aim, compose the data structure holding info about statistics, iterate through all values and try to find the complementary 
    
 """
+from typing import List
+
 
 class Solution1679:
-    pass
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        stat = dict()
+        for num in nums:
+            if num in stat:
+                stat[num] += 1
+            else:
+                stat[num] = 1
+        ans = 0
+        for num in nums:
+            compl = k - num
+            if compl == num and stat[num] >= 2:
+                stat[num] -= 2
+                ans += 1
+            elif stat[compl] and stat[compl] > 0 and stat[num] > 0 and compl != num:
+                ans += 1
+                stat[compl] -= 1
+                stat[num] -= 1
+
+        return  ans

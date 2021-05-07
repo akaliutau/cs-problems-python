@@ -18,6 +18,28 @@
     2) try to find all parts with sum == total / 3 - must be 3 such partitions
     
 """
+from typing import List
+
 
 class Solution1013:
-    pass
+    def canThreePartsEqualSum(self, arr: List[int]) -> bool:
+        n = len(arr)
+        sum = 0
+        for num in arr:
+            sum += num
+
+        if sum % 3 != 0:
+            return False
+
+        sum = sum // 3;
+        partition = 0
+        runSum = 0
+
+        for i in range(n):
+            runSum += arr[i]
+            if runSum == sum and partition < 3:
+                partition += 1
+                runSum = 0
+
+        return partition == 3
+

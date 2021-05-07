@@ -25,6 +25,19 @@
    b2 -> b3
    
 """
+from typing import List
+
 
 class Solution1566:
-    pass
+    def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
+        comonLength = 0
+        n = len(arr)
+        for i in range(n - m):
+            if arr[i] == arr[i+m]:
+                comonLength += 1
+            else:
+                comonLength = 0
+            if comonLength == (k-1) * m:
+                return True
+        return False
+
