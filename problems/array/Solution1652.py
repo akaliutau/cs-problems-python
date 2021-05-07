@@ -20,6 +20,32 @@
    next 3 numbers. The decrypted code is [7+1+4, 1+4+5, 4+5+7, 5+7+1]. Notice
    that the numbers wrap around.
 """
+from typing import List
+
 
 class Solution1652:
-    pass
+    def decrypt(self, code:List[int], k:int) -> List[int]:
+        n = len(code)
+        decoded = [0] * n
+        if k == 0:
+            return decoded
+        sum = [0] * n; # sum_i = sum(i,i+k-1) exclusive
+        kSum = 0
+        # calc the very first sum
+
+        l = abs(k)
+        for i in range(l):
+            kSum += code[i % n]
+        sum[0] = kSum
+        for i in range(1,n):
+            less = code[i-1]
+            more = code[(i + l - 1) % n]
+            kSum += (more - less)
+            sum[i] = kSum
+        if k > 0:
+            for i in range(n):
+                decoded[i] = sum[(i + 1) % n]
+        else:
+            for i in range(n):
+                decoded[(l + i) % n] = sum[i]
+        return decoded
