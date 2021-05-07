@@ -8,5 +8,22 @@
    as a result the total time complexity will be O(n) - if contains operation is O(1)
 """
 
+
 class Solution128:
-    pass
+    def longestConsecutive(self, nums):
+        num_set = set(nums)
+
+        longest_streak = 0
+
+        for num in num_set:
+            if num - 1 not in num_set:
+                currentNum = num
+                curSubseq = 1  # num is an elem
+
+                while currentNum + 1 in num_set:
+                    currentNum += 1
+                    curSubseq += 1
+                # update longest length
+                longest_streak = max(longest_streak, curSubseq)
+
+        return longest_streak

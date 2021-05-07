@@ -5,5 +5,15 @@
    
 """
 
+
 class Solution80:
-    pass
+    def removeDuplicates(self, nums):
+        mapped = [0] * 20002
+        pos = 0
+        for num in nums:
+            if mapped[num + 10000] < 2:
+                nums[pos] = num
+                pos += 1
+                mapped[num + 10000] += 1
+
+        return pos

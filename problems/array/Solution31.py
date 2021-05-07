@@ -18,4 +18,28 @@
 """
 
 class Solution31:
-    pass
+
+    def _reverse(self, nums, idx):  # reverses[1, 2, 3] -> [3, 2, 1]
+        print(nums, idx)
+        i = idx
+        j = len(nums) - 1
+        while i < j:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+            j -= 1
+
+    def nextPermutation(self, nums):
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i + 1]:  # find a peak in a histogram - an asc order from the tail
+            i -= 1
+        # now [i+1] is the peak, [i] - the elem just before the peak
+
+        if i >= 0:
+            j = len(nums) - 1
+            while j >= 0 and nums[i] >= nums[j]:  # find the 1st elem greater or equal than found one
+                j -= 1
+            nums[i], nums[j] = nums[j], nums[i]
+
+        self._reverse(nums, i + 1);
+
+

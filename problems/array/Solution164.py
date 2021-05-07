@@ -9,6 +9,19 @@
    IDEA:
    sort and compare pairs [i] and [i+1]
 """
+from typing import List
+
 
 class Solution164:
-    pass
+    def maximumGap(self, nums : List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return 0
+
+        nums.sort()
+        diff = nums[1] - nums[0]
+        i = 1
+        while i < n - 1:
+            diff = max(diff, nums[i+1] - nums[i])
+            i += 1
+        return diff

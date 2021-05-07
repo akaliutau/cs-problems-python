@@ -18,6 +18,16 @@
    1) any local inversion is a global inversion as well => in IdealPermutation all inversions are LOCAL
    2) if inversion is global only, one can return false immediately 
 """
+from typing import List
+
 
 class Solution775:
-    pass
+    def isIdealPermutation(self, nums: List[int]) -> bool:
+        n = len(nums)
+        max = 0
+        for i in range(n-2):
+            max = max(max,nums[i]) # the biggest number found so far
+            if max > nums[i+2]:
+                return False # if inversion is global only, one can return false immediately
+
+        return True

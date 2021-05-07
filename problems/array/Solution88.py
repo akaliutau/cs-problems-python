@@ -17,4 +17,25 @@
 """
 
 class Solution88:
-    pass
+    def merge(self, nums1, m, nums2, n):
+        pos1 = m - 1
+        pos2 = n - 1
+        at = pos1
+        while at >= 0:
+            if pos1 >= 0 and pos2 >= 0:
+                if nums1[pos1] > nums2[pos2]:
+                    nums1[at] = nums1[pos1]
+                    pos1 -= 1
+                else:
+                    nums2[at] = nums2[pos2]
+                    pos2 -= 1
+            elif pos1 >=0:
+                nums1[at] = nums1[pos1]
+                pos1 -= 1
+            elif pos2 >=0:
+                nums1[at] = nums2[pos2]
+                pos2 -= 1
+            at -= 1
+
+
+
