@@ -5,7 +5,7 @@ This repository is a Pythonic version of this one: https://github.com/akalu/cs-p
 
 See full solutions at https://github.com/akalu/cs-problems-revisited
 
-This repository is incomplete, full solutions are provided for the following modules:
+This repository is incomplete, full solutions are provided for problems in the following modules:
 
 arrays 
 backtracking
