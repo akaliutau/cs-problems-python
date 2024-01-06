@@ -5,11 +5,21 @@ This repository is a Pythonic version of this one: https://github.com/akalu/cs-p
 
 See full solutions at https://github.com/akalu/cs-problems-revisited
 
-This repository is incomplete, full solutions are provided for problems in the following modules:
+# Installation
 
-arrays 
+```shell
+python3 -m venv venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+```
 
-backtracking
+# Repository status
+
+This repository is incomplete, full solutions are provided for problems only in the following modules:
+
+* arrays 
+
+* backtracking
 
 
 
