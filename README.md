@@ -1,9 +1,9 @@
 
 # About
 
-This repository is a Pythonic version of this one: https://github.com/akalu/cs-problems-revisited, devoted to solving various CS problems.
+This repository is a Pythonic version of this one: https://github.com/akaliutau/cs-problems-revisited, devoted to solving various CS problems.
 
-See full solutions at https://github.com/akalu/cs-problems-revisited
+See full solutions at https://github.com/akaliutau/cs-problems-revisited
 
 # Installation
 
